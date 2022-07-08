@@ -24,10 +24,8 @@ public class EnnemyMovement : MonoBehaviour
 
         if (speed.x > 0)    origin.x += thisCollider.size.x / 2;
         else                origin.x -= thisCollider.size.x / 2;
-
-        RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.down, .2f);
-
-        if (hit.collider == null && avoidCliffs) {
+        
+        if (Physics2D.Raycast(origin, Vector2.down, .5f).collider == null && avoidCliffs) {
             speed.x *= -1;
         }
 
